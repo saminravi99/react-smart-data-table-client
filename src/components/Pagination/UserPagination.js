@@ -23,13 +23,13 @@ export default function UserPagination({ pageCount, currentPage, setCurrentPage,
   , [currentPage]);
 
   const paginationBasic = (
-    <div className="d-flex justify-content-center">
-      <span className="d-inline-block me-4 mt-1">
+    <div className="d-flex flex-lg-row flex-column justify-content-center">
+      <span className="d-inline-block me-lg-4 mt-1 mx-lg-0 mx-auto mb-lg-0 mb-4">
         <strong>{dataRange}</strong>
       </span>
-      <Pagination>{items}</Pagination>
-      <div className="ms-5 ">
-        <span className="me-3">Show</span>
+      <Pagination className="pagination-list mx-lg-0 mx-auto">{items}</Pagination>
+      <div className="ms-lg-5 mx-lg-0 mx-auto mb-lg-0 mb-4">
+        <span className="me-lg-3 me-2">Show</span>
         <Form.Select
           onChange={(e) => {
             setPageSize(e.target.value);
@@ -45,7 +45,7 @@ export default function UserPagination({ pageCount, currentPage, setCurrentPage,
         <span className="ms-2">entries</span>
       </div>
       <Form>
-        <Form.Group className="mb-3 ms-4" controlId="exampleForm.ControlInput1">
+        <Form.Group className="mb-lg-3 ms-lg-4 search-input" controlId="exampleForm.ControlInput1">
           <Form.Control 
           onChange={(e) => setSearchQuery(e.target.value)}
           value={searchQuery}

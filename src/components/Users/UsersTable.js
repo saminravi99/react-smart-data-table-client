@@ -83,7 +83,7 @@ const UsersTable = ({
 
   return (
     <div>
-      <Table striped bordered hover>
+      <Table responsive striped bordered hover>
         <thead>
           <tr className="text-center">
             <th>#</th>
