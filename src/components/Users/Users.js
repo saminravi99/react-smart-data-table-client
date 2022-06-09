@@ -19,7 +19,7 @@ const Users = () => {
 
   useEffect(() => {
     if (pageSize === "10") {
-      fetch(`http://localhost:5000/users/count`)
+      fetch(`https://react-smart-data-table.herokuapp.com/users/count`)
         .then((res) => res.json())
         .then((data) => {
           setPageCount(Math.ceil(data.count / 10));
@@ -29,7 +29,7 @@ const Users = () => {
   }, [pageCount, pageSize]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users`)
+    fetch(`https://react-smart-data-table.herokuapp.com/users`)
       .then((res) => res.json())
       .then((data) => {
         setAllUsers(data);
@@ -37,7 +37,7 @@ const Users = () => {
   }, [currentPage, pageSize, totalUsers, users]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${pageSize}/${currentPage}`)
+    fetch(`https://react-smart-data-table.herokuapp.com/users/${pageSize}/${currentPage}`)
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
