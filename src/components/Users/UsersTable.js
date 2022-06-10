@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Table } from "react-bootstrap";
+import Loader from "../Loader/Loader";
 import "./UsersTable.css";
 
 const UsersTable = ({
@@ -8,12 +9,10 @@ const UsersTable = ({
   setDataRange,
   totalUsers,
   searchQuery,
+  reload
 }) => {
-  //Filter index of the users from all users
-  console.log(users);
-  // const [initialIndex, setInitialIndex]   = useState(0);
-  // const [finalIndex, setFinalIndex]       = useState(0);
-
+ 
+  
   const firstUserIndex = allUsers.findIndex(
     (user) => user._id === users[0]._id
   );
@@ -37,7 +36,6 @@ const UsersTable = ({
         );
       });
   }
-  console.log(filteredUsers)
 
   useEffect(() => {
     setDataRange(`
@@ -83,22 +81,26 @@ const UsersTable = ({
 
   return (
     <div>
-      <Table responsive striped bordered hover>
-        <thead>
-          <tr className="text-center">
-            <th>#</th>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Gender</th>
-            <th>Address</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Company</th>
-            <th>Salary</th>
-          </tr>
-        </thead>
-        <tbody>{usersList}</tbody>
-      </Table>
+      {reload ? (
+        <Loader></Loader>
+      ) : (
+        <Table responsive striped bordered hover>
+          <thead>
+            <tr className="text-center">
+              <th>#</th>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Gender</th>
+              <th>Address</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Company</th>
+              <th>Salary</th>
+            </tr>
+          </thead>
+          <tbody>{usersList}</tbody>
+        </Table>
+      )}
     </div>
   );
 };

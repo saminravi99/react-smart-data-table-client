@@ -5,17 +5,14 @@ import UsersTable from "./UsersTable";
 
 const Users = () => {
   const [pageCount, setPageCount] = useState(0);
-  console.log(pageCount);
   const [totalUsers, setTotalUsers] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
-  console.log(searchQuery);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState("10");
   const [users, setUsers] = useState([]);
   const [allUsers, setAllUsers] = useState([]);
-  console.log(pageSize);
-  console.log(users);
   const [dataRange, setDataRange] = useState("");
+  const [reload, setReload] = useState(false);
 
   useEffect(() => {
     if (pageSize === "10") {
@@ -37,10 +34,14 @@ const Users = () => {
   }, [currentPage, pageSize, totalUsers, users]);
 
   useEffect(() => {
-    fetch(`https://react-smart-data-table.herokuapp.com/users/${pageSize}/${currentPage}`)
+    setReload(true);
+    fetch(
+      `https://react-smart-data-table.herokuapp.com/users/${pageSize}/${currentPage}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
+        setReload(false);
       })
       .then(() => {
         if (pageSize !== "10") {
@@ -67,6 +68,7 @@ const Users = () => {
           users={users}
           allUsers={allUsers}
           setDataRange={setDataRange}
+          reload={reload}
           totalUsers={totalUsers}
           searchQuery={searchQuery}
         ></UsersTable>

@@ -4,7 +4,6 @@ import "./UserPagination.css"
 
 export default function UserPagination({ pageCount, currentPage, setCurrentPage, totalUsers, setPageSize, dataRange, searchQuery, setSearchQuery }) {
   let active = currentPage;
-  console.log(dataRange);
   let items = [];
   for (let number = 1; number <= pageCount; number++) {
     items.push(
