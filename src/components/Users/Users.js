@@ -52,17 +52,19 @@ const Users = () => {
 
   return (
     <div className="my-5">
-      <UserPagination
-        dataRange={dataRange}
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-        pageCount={pageCount}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-        totalUsers={totalUsers}
-        pageSize={pageSize}
-        setPageSize={setPageSize}
-      ></UserPagination>
+      <div className="nav-bar">
+        <UserPagination
+          dataRange={dataRange}
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          pageCount={pageCount}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          totalUsers={totalUsers}
+          pageSize={pageSize}
+          setPageSize={setPageSize}
+        ></UserPagination>
+      </div>
       <div className="container">
         <UsersTable
           users={users}

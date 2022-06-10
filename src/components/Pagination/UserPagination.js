@@ -48,7 +48,7 @@ export default function UserPagination({ pageCount, currentPage, setCurrentPage,
           <Form.Control 
           onChange={(e) => setSearchQuery(e.target.value)}
           value={searchQuery}
-           type="text" placeholder="Search" />
+           type="text" placeholder="Search by Name, Email..." />
         </Form.Group>
         
       </Form>
